@@ -66,3 +66,18 @@ h2{
 #makeButton{
   height: 9vh;
 }
+#makeButton:active{
+  transform: scale(1.5,1.5);
+}
+#missButton{
+  height: 9vh;
+}
+#missButton:active{
+  transform: scale(1.5,1.5);
+}
+
+#tempImg{
+  position: absolute;
+  background-position-x: left;
+  background-position-y: top;
+}
