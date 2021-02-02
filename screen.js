@@ -4,6 +4,7 @@ class Screen{
     }
 
     display(){
+      
       var made = 0;
         var total = 0;
         var gameState = 1;
@@ -13,7 +14,7 @@ class Screen{
         backGround.position(0,0);
         console.log("screen has been created"); 
         var logo = createImg(
-            '../Images/logo.png',
+            'logo.png',
             'Logo'
           );
         logo.parent(backGround);
@@ -23,6 +24,7 @@ class Screen{
         button.position(width/2-65, height/2+100);
         button.id("startButton");
         button.mousePressed(change);
+        button.touchStarted(change);
         }
     function change() {
       logo.hide();
@@ -50,6 +52,7 @@ class Screen{
       button2.position(width/2-70, height/2+250);
       button2.id("startButton2");
       button2.mousePressed(change1);
+      button2.touchStarted(change1);
       function change1() {
         instructions.hide();
         no1.hide();
@@ -62,38 +65,109 @@ class Screen{
         kobe.hide();
         button2.hide();
         var court = createImg(
-          '../Images/Court.png',
+          'Court.png',
           'Court'
         );
-        court.parent(backGround);
         court.position(width/2-280, height/2-5);
         court.id("court");
-        var accuracy = createElement('h2', "A C C U R A C Y");
-        accuracy.position(width/2-97,height/2-350);
-        
-        var score = createElement('h1', made+"/"+total);
-        score.position(width/2-60, height/2-310);
+        court.mouseClicked(function () {
+          x = mouseX;
+          y = mouseY;
+          console.log(x+" and "+y);
+        });
+        court.touchStarted(function () {
+          x = mouseX;
+          y = mouseY;
+          console.log(x+" and "+y);
+        });
         var make = createElement('h2', "M A K E");
-        make.position(width/2-230,height/2-180);
+        make.position(width/2-210,height/2-250);
         var miss = createElement('h2', "M I S S");
-        miss.position(width/2+120,height/2-180);
+        miss.position(width/2+70,height/2-250);
         var makeButton = createImg(
-          '../Images/makeButton.png',
+          'makeButton.png',
           'makeButton'
         );
         makeButton.parent(backGround);
-        makeButton.position(width/2-215, height/2-95);
+        makeButton.position(width/2-195, height/2-165);
         makeButton.id("makeButton");
-        makeButton.mousePressed(increase);
+        makeButton.mouseClicked(function () {
+          makeImg = createImg(
+            'circle2.png',
+            'makeImg'
+          );
+          makeImg.position(x-13,y-13);
+          made = made + 1;
+          total = total + 1;
+        });
+        makeButton.touchStarted(function () {
+          makeImg = createImg(
+            'circle2.png',
+            'makeImg'
+          );
+          makeImg.position(x-13,y-13);
+          made = made + 1;
+          total = total + 1;
+        });
+      
 
         var missButton = createImg(
-          '../Images/missedButton.png',
+          'missedButton.png',
           'missedButton'
         );
         missButton.parent(backGround);
-        missButton.position(width/2+130, height/2-95);
-        missButton.id("makeButton");
+        missButton.position(width/2+80, height/2-165);
+        missButton.id("missButton");
+        var missed = 0;
+        missButton.mouseClicked(function () {
+          missImg = createImg(
+            'cross.png',
+            'missImg'
+          );
+          missImg.position(x-15,y-15);
+          missed = missed+1;
+          total = total+1;
+        });
+        missButton.touchStarted(function () {
+          missImg = createImg(
+            'cross.png',
+            'missImg'
+          );
+          missImg.position(x-15,y-15);
+          miss = miss+1;
+          total = total+1;
+        });
+        
+      var button3 = createButton("FINISH >");
+      button3.position(width/2+150, height/2-350);
+      button3.id("startButton2");
+      button3.mousePressed(change2);
+      button3.touchStarted(change2);
+      function change2(){
+        makeButton.hide();
+        missButton.hide();
+        miss.hide();
+        make.hide();
+        console.log("finished");
+        var accuracy = createElement('h2', "A C C U R A C Y");
+        accuracy.position(width/2-97,height/2-350);
+        
+        var score = createElement('h1');
+        score.html(made+"/"+total)
+        score.position(width/2-60, height/2-310);
+
+        var percent = createElement('h2', "P E R C E N T A G E");
+        percent.position(width/2-130,height/2-190);
+
+        var percentage = Math.round(made/total*100);
+        
+
+        var score = createElement('h1');
+        score.html(percentage+"%")
+        score.position(width/2-70, height/2-160);
+      } 
         }
+      
     }
     
     }
