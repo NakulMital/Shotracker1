@@ -4,7 +4,6 @@ class Screen{
     }
 
     display(){
-      
       var made = 0;
         var total = 0;
         var gameState = 1;
@@ -68,6 +67,8 @@ class Screen{
           'Court.png',
           'Court'
         );
+          var x = 0;
+          var y = 0;
         court.position(width/2-280, height/2-5);
         court.id("court");
         court.mouseClicked(function () {
@@ -92,7 +93,7 @@ class Screen{
         makeButton.position(width/2-195, height/2-165);
         makeButton.id("makeButton");
         makeButton.mouseClicked(function () {
-          makeImg = createImg(
+          var makeImg = createImg(
             'circle2.png',
             'makeImg'
           );
@@ -101,7 +102,7 @@ class Screen{
           total = total + 1;
         });
         makeButton.touchStarted(function () {
-          makeImg = createImg(
+          var makeImg = createImg(
             'circle2.png',
             'makeImg'
           );
@@ -120,7 +121,7 @@ class Screen{
         missButton.id("missButton");
         var missed = 0;
         missButton.mouseClicked(function () {
-          missImg = createImg(
+          var missImg = createImg(
             'cross.png',
             'missImg'
           );
@@ -129,7 +130,7 @@ class Screen{
           total = total+1;
         });
         missButton.touchStarted(function () {
-          missImg = createImg(
+          var missImg = createImg(
             'cross.png',
             'missImg'
           );
