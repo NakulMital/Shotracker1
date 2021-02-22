@@ -14,7 +14,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   database = firebase.database();
-    if(windowWidth===414 && windowHeight===846){
+    if(windowWidth >= 1200){
       screen1 = new Screen();
       screen1.display();
 }
