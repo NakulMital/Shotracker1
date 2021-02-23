@@ -14,7 +14,7 @@ class Screen2{
         backGround.position(0,0);
         console.log("screen2 has been created"); 
         var logo = createImg(
-            '../Images/logo.png',
+            'logo.png',
             'LogoM'
           );
         logo.parent(backGround);
@@ -65,7 +65,7 @@ class Screen2{
         kobe.hide();
         button2.hide();
         var court = createImg(
-          '../Images/Court.png',
+          'Court.png',
           'Court'
         );
         court.position(width/2-280, height/2-5);
@@ -85,7 +85,7 @@ class Screen2{
         var miss = createElement('h2', "M I S S");
         miss.position(width/2+70,height/2-250);
         var makeButton = createImg(
-          '../Images/makeButton.png',
+          'makeButton.png',
           'makeButton'
         );
         makeButton.parent(backGround);
@@ -93,7 +93,7 @@ class Screen2{
         makeButton.id("makeButton");
         makeButton.mouseClicked(function () {
           makeImg = createImg(
-            '../Images/circle2.png',
+            'circle2.png',
             'makeImg'
           );
           makeImg.position(x-13,y-13);
@@ -102,7 +102,7 @@ class Screen2{
         });
         makeButton.touchStarted(function () {
           makeImg = createImg(
-            '../Images/circle2.png',
+            'circle2.png',
             'makeImg'
           );
           makeImg.position(x-13,y-13);
@@ -112,7 +112,7 @@ class Screen2{
       
 
         var missButton = createImg(
-          '../Images/missedButton.png',
+          'missedButton.png',
           'missedButton'
         );
         missButton.parent(backGround);
@@ -121,7 +121,7 @@ class Screen2{
         var missed = 0;
         missButton.mouseClicked(function () {
           missImg = createImg(
-            '../Images/cross.png',
+            'cross.png',
             'missImg'
           );
           missImg.position(x-15,y-15);
@@ -129,7 +129,7 @@ class Screen2{
         });
         missButton.touchStarted(function () {
           missImg = createImg(
-            '../Images/cross.png',
+            'cross.png',
             'missImg'
           );
           missImg.position(x-15,y-15);
