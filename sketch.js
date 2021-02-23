@@ -9,7 +9,6 @@ var missImg;
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
-  database = firebase.database();
     
   if (windowWidth>= 1200) {
       screen1 = new Screen();
